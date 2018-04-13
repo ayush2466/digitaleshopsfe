@@ -44,10 +44,6 @@
 		<form:input path="price" class="form-control" style="width:750px"/>
 		<form:errors path="price" cssStyle="color:red"></form:errors>
         </div>
-		<div class="form-group">
-		<form:label path="image">Upload image</form:label>
-		<form:input type="file" path="image"></form:input>
-		</div>
         
         <div class="form-group">
         <!-- FK(cid) in Product table 
@@ -58,11 +54,19 @@
         <form:select path="category.id">
         <c:forEach items="${categories }" var="c">
         
-        <form:option value="${c.id }">${c.categoryname }  ${c.id }</form:option>
+        <form:option value="${c.id }">${c.categoryname } </form:option>
         </c:forEach>
         </form:select>
         </div>
-     <input type="submit" value="Add Product">   
+        
+        <div class="form-group">
+		<form:label path="image">Upload image</form:label>
+		<form:input type="file" path="image"></form:input>
+		</div>
+        
+		<input type="submit" value="Add Product">
+		
+		
 	</form:form>
 	</div>
 </body>

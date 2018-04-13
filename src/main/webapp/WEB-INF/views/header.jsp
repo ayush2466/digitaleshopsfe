@@ -10,11 +10,20 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="${pageContext.request.contextPath}/resources/css/navbar.css"rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/table.css"rel="stylesheet">
+
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet"> 
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -40,9 +49,15 @@
 				<li class="dropdown"><a href="" class="dropdown-toggle"
 					data-toggle="dropdown">Select by Categories<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="">General</a></li>
-						<li><a href="">Discount sale</a></li>
-						<li><a href="">Special edition</a></li>
+						<li >
+					<!-- Request parameter
+					parameter name is 'searchCondition' -->
+					   <a href='<c:url value="/all/searchbycategory?searchCondition=TV Appliances"></c:url>'>TV Appliances</a>
+					   <a href='<c:url value="/all/searchbycategory?searchCondition=pendrives"></c:url>'>pendrives</a>
+					   <a href='<c:url value="/all/searchbycategory?searchCondition=PCs"></c:url>'>PCs</a>
+					   <a href='<c:url value="/all/searchbycategory?searchCondition=Smartphones"></c:url>'>Smartphones</a>
+					   <a href='<c:url value="/all/searchbycategory?searchCondition=All"></c:url>'>All</a>
+                    </li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-left">

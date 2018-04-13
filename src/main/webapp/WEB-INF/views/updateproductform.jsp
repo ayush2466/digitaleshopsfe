@@ -14,7 +14,7 @@
 	<div class="container">
 	<h3 align="center">Update Product</h3>
 	<c:url value="/admin/updateproduct" var="url"></c:url>
-	<form:form action='${url }' modelAttribute="product" role="form">
+	<form:form action='${url }' modelAttribute="product" role="form" enctype="multipart/form-data">
 		<!-- hidden field is for product id
 			product.setId(0)
  		-->
@@ -44,19 +44,22 @@
 		<form:input path="price" class="form-control" style="width:750px"/>
 		<form:errors path="price"></form:errors>
         </div>
-         <div class="form-group">
-        <!-- FK(cid) in Product table 
-        category.setId(100)..
-        -->
+        
+        <div class="form-group">
         <form:label path="category.id">Select Category</form:label>
      
         <form:select path="category.id">
-        <c:forEach items="${categories }" var="c">
+        <c:forEach items="${categories}" var="c">
         
-        <form:option value="${c.id }">${c.categoryname }  ${c.id }</form:option>
+        <form:option value="${c.id }">${c.categoryname }  </form:option>
         </c:forEach>
         </form:select>
         </div>
+        
+         <div class="form-group">
+		<form:label path="image">Upload image</form:label>
+		<form:input type="file" path="image"></form:input>
+		</div>
 		<input type="submit" value="Edit Product">
 	</form:form>
 	</div>
