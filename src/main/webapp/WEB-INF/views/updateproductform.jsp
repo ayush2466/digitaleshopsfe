@@ -44,7 +44,6 @@
 		<form:input path="price" class="form-control" style="width:750px"/>
 		<form:errors path="price"></form:errors>
         </div>
-        
         <div class="form-group">
         <form:label path="category.id">Select Category</form:label>
      
@@ -55,8 +54,7 @@
         </c:forEach>
         </form:select>
         </div>
-        
-         <div class="form-group">
+       <div class="form-group">
 		<form:label path="image">Upload image</form:label>
 		<form:input type="file" path="image"></form:input>
 		</div>

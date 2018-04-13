@@ -29,7 +29,7 @@ public class ProductController{
 @Autowired
 private ProductService productService;
 //http://localhost:8080/project1frontend/all/getproducts 
-@RequestMapping(value="/allgetproducts")
+@RequestMapping(value="/all/getproducts")
 public ModelAndView getAllProducts(){
 	List<Product> products=productService.getAllProducts();
 	//1st parameter - logical view name - productlist
@@ -40,7 +40,7 @@ public ModelAndView getAllProducts(){
 	System.out.println(products);
 	return new ModelAndView("productlist","productsAttr",products);
 }
-@RequestMapping(value="/all/getproduct/{id}")  //id is pathvariable  id=1, id=2, id=3
+@RequestMapping(value="/all/getproducts/{id}")  //id is pathvariable  id=1, id=2, id=3
 //  all/getproduct/1  , all/getproduct/2 , all/getproduct/3...
 public ModelAndView getProduct(@PathVariable int id){//id =1, 2, 3 
 	//Pass this id to Service -> Service has to pass the id to Dao -> select * from product where id=1
@@ -68,7 +68,7 @@ public String deleteProduct(@PathVariable int id,HttpServletRequest request) {
 			e.printStackTrace();
 		}
 	}
-	return "redirect:/allgetproducts";
+	return "redirect:/all/getproducts";
 }
 
 @RequestMapping(value="/admin/getproductform")
@@ -78,14 +78,14 @@ public String getProductForm(Model model){//model to send data to the view
 	//categories = List<Category>
 	List<Category> categories=productService.getAllCategories();
 	model.addAttribute("product",new Product());
-	model.addAttribute("categories",categories);
+	model.addAttribute("categories",productService.getAllCategories());
 	System.out.println("Size of category list " + categories.size());
 	return "productform";
 }
 @RequestMapping(value="/admin/updateproductform/{id}")
 public ModelAndView getUpdateProductForm(@PathVariable int id,Model model){
 	List<Category> categories=productService.getAllCategories();
-model.addAttribute("catergories",categories);
+model.addAttribute("categories",categories);
 	Product product=productService.getProduct(id);
 	return new ModelAndView("updateproductform","product",product);
 }
@@ -93,7 +93,7 @@ model.addAttribute("catergories",categories);
 @RequestMapping(value="/admin/saveproduct")
 //product is the value entered by the user in the product form
 //validate productname is notempty, productdescription is notempty, min price is 1,min quantity is 1
-public String saveProduct(@Valid @ModelAttribute(name="product") Product product,BindingResult result,Model model,HttpServletRequest request,HttpServletResponse response) {
+public String saveProduct(@Valid @ModelAttribute(value="product") Product product,BindingResult result,Model model,HttpServletRequest request,HttpServletResponse response) {
 	if(result.hasErrors()){//hasErrors return true if product details in not valid
 		
 		model.addAttribute("categories",productService.getAllCategories());
@@ -116,11 +116,11 @@ public String saveProduct(@Valid @ModelAttribute(name="product") Product product
 		 }
 	}
 	
-	return "redirect:/allgetproducts";
+	return "redirect:/all/getproducts";
 }
 
 @RequestMapping(value="/admin/updateproduct")
-public String updateProduct(@Valid @ModelAttribute(name="product") Product product,BindingResult result,Model model,HttpServletRequest request){
+public String updateProduct(@Valid @ModelAttribute(value="product") Product product,BindingResult result,Model model,HttpServletRequest request){
 	if(result.hasErrors()){
 		model.addAttribute("categories",productService.getAllCategories());
 		return "updateproductform";
@@ -147,7 +147,7 @@ public String updateProduct(@Valid @ModelAttribute(name="product") Product produ
 			}
 		
 	}
-	return "redirect:/allgetproducts";
+	return "redirect:/all/getproducts";
 }
 @RequestMapping(value="/all/searchbycategory")
 public String searchByCategory(@RequestParam String searchCondition,Model model){

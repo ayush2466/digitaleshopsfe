@@ -58,7 +58,7 @@ p = 1 1000.0 Product Description for toy car Toy Car 12
 						<!--  when glyphicon info sign is clicked, request
 					 will be handled by the RequestMapping value 'all/getproduct/1 -->
 						<td><a
-							href='<c:url value="/allgetproduct/${p.id }"></c:url>'> <span
+							href='<c:url value="/all/getproducts/${p.id }"></c:url>'> <span
 								class="glyphicon glyphicon-info-sign"></span>
 
 						</a> <a href='<c:url value="/admin/deleteproduct/${p.id }"></c:url>'><span
