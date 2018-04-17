@@ -67,7 +67,7 @@
           </form>
 			</ul>
 			 <ul class="nav navbar-nav navbar-right">
-      <li><a href="registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href='<c:url value="/all/registrationform"></c:url>'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
 			</div>

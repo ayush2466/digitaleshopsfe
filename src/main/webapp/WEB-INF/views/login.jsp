@@ -15,57 +15,44 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="${pageContext.request.contextPath}/resources/css/login.css"rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"src="src/main/webapp/WEB-INF/resources/css/login.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+	
 </head>
 <body>
 
 <%@ include file="header.jsp" %> 
 	
-	<div class="container">
-    	<h1 class="well">Login</h1>
-		<div class="col-lg-12 well">
-				<div class="row">
-					<div class="col-sm-6 form-group">
-						<label>User Name</label>
-						<input type="text" placeholder="username.." class="form-control">
-					</div>
-					<div class="col-sm-6 form-group">
-						<label>Password</label>
-						<input type="password" placeholder="password.." class="form-control">
-					</div>
-				</div>
-				<div class="row">				
-				  <div class="col-sm-12 text-center">
-					<button type="button" class="btn btn-block btn-info">Login</button> 
-				  </div>
-				</div>				  
-				<div class="or-text">
-					<div class="or-text-row">
-						<div class="or-text-line">
-							<button type="button" class="btn btn-default btn-circle" disabled="disabled">or</button>
-						</div>
-					</div>
-				</div>
-				<div class="row">	
-					<div class="col-sm-4">
-						<div class="btn-group">
-							<button type="button" class="btn btn-primary"><i class="fa fa-facebook"> </i>Sign in with Facebook</button>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="btn-group">
-							<button type="button" class="btn btn-danger"><i class="fa fa-google-plus"></i>Sign in with GooglePlus</button>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="btn-group">
-							<button type="button" class="btn btn-info"><i class="fa fa-linkedin"></i>Sign in with Linkedin</button>
-						</div>
-					</div>
-				</div>	
-		</div>
-	</div>
-	
-	
+<!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required  autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
 <%@ include file="footer.jsp" %> 
 </body>
 </html>
