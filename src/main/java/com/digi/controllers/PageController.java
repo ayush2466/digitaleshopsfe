@@ -20,11 +20,11 @@ public class PageController {
 		return new ModelAndView("ContactUs","hellomsg","welcome to the future of electronics");
 
 	}
-	@RequestMapping(value="/login")
+	/*@RequestMapping(value="/login")
 	public ModelAndView loginrequest()
 	{
 		return new ModelAndView("login","log","Please login");
-}
+}*/
 	@RequestMapping(value="/registration")
 	public ModelAndView registrationrequest()
 	{
