@@ -67,56 +67,12 @@
                         BPTP princess park<br />
                         Sector-86,Fridabad,Haryana,India<br />
                         </div>
-                        <hr />
-                        <div id="map1" class="map">
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxZ8rwULemSTy0mWQbWewbRx-tf0r6ftw
-  &callback=initMap"
-  type="text/javascript"></script>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        function init_map1() {
-            var myLocation = new google.maps.LatLng(28.4045024,77.3435493);
-            var mapOptions = {
-                center: myLocation,
-                zoom: 14
-            };
-            var marker = new google.maps.Marker({
-                position: myLocation,
-                title: "BPTP princess park"
-            });
-            var map = new google.maps.Map(document.getElementById("map1"),
-                mapOptions);
-            marker.setMap(map);
-        }
-        init_map1();
-    });
-</script>
-<style>
-    .map {
-        min-width: 300px;
-        min-height: 300px;
-        width: 100%;
-        height: 100%;
-    }
-
-    .header {
-        background-color: #F5F5F5;
-        color: #36A0FF;
-        height: 70px;
-        font-size: 27px;
-        padding: 10px;
-    }
-</style>
 <%@ include file="footer.jsp" %> 
 </body>
 </html>

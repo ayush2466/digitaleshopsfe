@@ -44,9 +44,9 @@
 			</div>
 			<div class="collapse navbar-collapse" id="collapse-example">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="home">Home</a></li>
-				<li><a href="Aboutus">About Us</a></li>
-				<li><a href="Contactus">Contact Us</a></li>
+				<li class="active"><a href='<c:url value="/home"></c:url>'>Home</a></li>
+				<li><a href='<c:url value="/Aboutus"></c:url>'>About Us</a></li>
+				<li><a href='<c:url value="/Contactus"></c:url>'>Contact Us</a></li>
 				<li><a href='<c:url value="/all/getproducts"></c:url>'>Browse All Products</a></li>
 				 <security:authorize access="hasRole('ROLE_ADMIN')">
 				<li><a href='<c:url value="/admin/getproductform"></c:url>'>Add Product</a></li>
@@ -72,6 +72,10 @@
       <li><a href='<c:url value="/login"></c:url>'><span class="glyphicon glyphicon-log-in"></span>Sign In</a></li>
       </c:if>
       <c:if test="${pageContext.request.userPrincipal.name!=null }">
+      <li><a href="<c:url value='/cart/purchasedetails'></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>(${sessionScope.cartSize})</a></li>
+      </c:if>
+      <c:if test="${pageContext.request.userPrincipal.name!=null }">
+      <li><a href="">${pageContext.request.userPrincipal.name}</a></li>
 			<li><a href='<c:url value="/j_spring_security_logout"></c:url>'>logout</a></li>
 			</c:if>
     </ul>

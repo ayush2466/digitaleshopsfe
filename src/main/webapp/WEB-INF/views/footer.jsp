@@ -41,15 +41,6 @@
 					</ul>
 				</div>
 				<div class="col-sm-3">
-					<h4 class="title-widget">My Account</h4>
-					<span class="acount-icon">          
-						<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Wish List</a>
-						<a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
-			  		<a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-						<a href="#"><i class="fa fa-globe" aria-hidden="true"></i> Language</a>           
-					</span>
-				</div>
-				<div class="col-sm-3">
 					<h4 class="title-widget">Category</h4>
 					<div class="category">
 						<a href="#" class="zoom">TV Appliances</a>
@@ -59,6 +50,7 @@
 						<a href="#" class="zoom">pendrives</a>         
 					</div>
 				</div>
+				<br>
 				<div class="col-sm-3">
 					<h4 class="title">Payment Methods</h4>
 					<p>EasyPay by using debit card and credit card</p>
@@ -71,6 +63,55 @@
 				</div>
 			</div>
 			<hr>
+			<div id="map1" class="map">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxZ8rwULemSTy0mWQbWewbRx-tf0r6ftw
+  &callback=initMap"
+  type="text/javascript"></script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        function init_map1() {
+            var myLocation = new google.maps.LatLng(28.4045024,77.3435493);
+            var mapOptions = {
+                center: myLocation,
+                zoom: 14
+            };
+            var marker = new google.maps.Marker({
+                position: myLocation,
+                title: "BPTP princess park"
+            });
+            var map = new google.maps.Map(document.getElementById("map1"),
+                mapOptions);
+            marker.setMap(map);
+        }
+        init_map1();
+    });
+</script>
+<style>
+    .map {
+        min-width: 300px;
+        min-height: 300px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .header {
+        background-color: #F5F5F5;
+        color: #36A0FF;
+        height: 70px;
+        font-size: 27px;
+        padding: 10px;
+    }
+</style>
 			
 			<div class="row text-center"> © 2018 Digitaleshops.com</div>
 		</div> <!-- ./container -->
