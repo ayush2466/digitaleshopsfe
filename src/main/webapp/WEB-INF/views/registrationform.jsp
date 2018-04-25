@@ -56,6 +56,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<h3 align="center">Registration Form</h3>
 <div class="container">
 <c:url var="url" value="/all/registercustomer"></c:url>
 <form:form modelAttribute="customer" action="${url }" id="form">
